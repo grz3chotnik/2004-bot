@@ -68,5 +68,5 @@ client.on(Events.InteractionCreate, async interaction => {
         }
     }
 });
-
+// Trigger redeploy to fix Vercel status
 client.login(process.env.DISCORD_TOKEN);
