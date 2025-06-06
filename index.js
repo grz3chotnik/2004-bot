@@ -4,6 +4,8 @@ const {Client, Collection, Events, GatewayIntentBits} = require('discord.js');
 const {token} = require('./config.json');
 const { PresenceUpdateStatus } = require('discord.js');
 const url = require("node:url");
+require('dotenv').config();
+
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, // Add if needed
@@ -67,4 +69,4 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
-client.login(token);
+client.login(process.env.DISCORD_TOKEN);

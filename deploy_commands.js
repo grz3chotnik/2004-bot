@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { REST, Routes } = require('discord.js');
 const { clientId, token } = require('./config.json'); // Remove guildId since it's no longer needed
 const fs = require('node:fs');
@@ -34,13 +35,13 @@ try {
     process.exit(1);
 }
 
-const rest = new REST().setToken(token);
+const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
         const data = await rest.put(
-            Routes.applicationCommands(clientId), // Changed this line
+            Routes.applicationCommands(process.env.CLIENT_ID), // Changed this line
             { body: commands },
         );
         console.log(`Successfully reloaded ${data.length} application (/) commands.`);

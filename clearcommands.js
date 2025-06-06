@@ -1,13 +1,13 @@
+require('dotenv').config();
 const { REST, Routes } = require('discord.js');
-const { clientId, token } = require('./config.json'); // Remove guildId since it's no longer needed
 
-const rest = new REST().setToken(token);
+const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
     try {
         console.log('Clearing all global commands...');
         await rest.put(
-            Routes.applicationCommands(clientId), // Changed this line
+            Routes.applicationCommands(process.env.CLIENT_ID),
             { body: [] }
         );
         console.log('Successfully cleared all global commands.');
