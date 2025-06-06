@@ -8,7 +8,7 @@ module.exports = {
     async execute(interaction) {
         const guild = interaction.guild;
 
-        const iconUrl = guild.iconURL({ dynamic: true, size: 128 });
+        const iconUrl = guild.iconURL({ dynamic: true, size: 512 });
 
         const embed = new EmbedBuilder()
             .setTitle(`${guild.name} Info`)
@@ -19,7 +19,7 @@ module.exports = {
                 `**Created On:** ${new Date(guild.createdAt).toLocaleDateString()}`
             )
             .setThumbnail(iconUrl || null)
-            .setColor('#ffffff')
+            .setColor('#012FA6')
             .setTimestamp();
         await interaction.reply({ embeds: [embed] });
     },

@@ -12,7 +12,7 @@ module.exports = {
             .setTitle(`${interaction.user.username} Info`)
             .setDescription(`${interaction.user.username} joined on ${new Date(interaction.member.joinedAt).toLocaleDateString()}.`)
             .setThumbnail(avatarUrl)
-            .setColor('#ffffff')
+            .setColor('#012FA6')
             .setTimestamp();
 
         await interaction.reply({ embeds: [embed] });

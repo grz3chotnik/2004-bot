@@ -2,17 +2,23 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {Client, Collection, Events, GatewayIntentBits} = require('discord.js');
 const {token} = require('./config.json');
+const { PresenceUpdateStatus } = require('discord.js');
+const url = require("node:url");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, // Add if needed
-        GatewayIntentBits.MessageContent]
+        GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates]
 });
+
+
 
 client.commands = new Collection();
 
 
 client.once(Events.ClientReady, readyClient => {
-    console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+    console.log(`Ready! Logged in as ${readyClient.user.tag}`,
+    client.user.setActivity('2004.lol',)
+);
 
 });
 
